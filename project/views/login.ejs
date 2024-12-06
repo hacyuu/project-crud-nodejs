@@ -1,0 +1,56 @@
+<div id="layoutAuthentication" class="">
+    <div id="layoutAuthentication_content" class="">
+
+        <main>
+            <div class="container relative">
+                <div class="flex items-center justify-center min-h-screen ">
+                    <img src="img/logo-rplbaru.png"
+                        class="flex mx-auto items-center absolute top-44 z-50 translate-x-1/2 right-1/2 mx-auto -translate-x-1/2 justify-center w-24 mb-8  " alt="Logo">
+
+                    <div class="col-lg-5">
+                        <div class="w-full max-w-md bg-transparent backdrop-blur-sm border border-gray-900
+                         rounded-lg shadow-2xl shadow  hover:shadow-indigo-500/40 p-8 my-8 ">
+                            <div class="card-header items-center text-center">
+                               <a href="/login " class="text-4xl font-bold text-white my-8  hover:text-orange-600">Login</a>
+                            </div>
+                            <div class="text-center card-body">
+                                <form id="loginForm" action="/login" method="POST">
+                                    <div
+                                        class="w-full mt-1 px-4 py-2 border rounded-full text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                        <label class="small mb-1" for="username">username:</label>
+                                        <input class="bg-transparent" id="username" name="username" type="text"
+                                            placeholder="Masukkan Username" />
+                                    </div>
+                                    <div
+                                        class="w-full mt-1 px-4 py-2 border rounded-full text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 mt-4">
+                                        <label for="small mb-1" for="password">Password:</label>
+                                        <input class="bg-transparent " id="password" name="password" type="password"
+                                            placeholder="Masukkan Password" />
+                                    </div>
+                                    <div
+                                        class="w-full mt-6 bg-gray-600 text-white py-2 px-4 rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ">
+                                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<script>
+    const password = document.querySelector("input");
+    const showHide = document.querySelector("i");
+    btn_show.addEventListener("click", () => {
+        if (password.type === "password") {
+            password.type = "text";
+            btn_show.classlist.add("hide");
+        } else {
+            password.type = "password";
+            btn_show.classlist.remove("hide");
+        }
+    })
+</script>

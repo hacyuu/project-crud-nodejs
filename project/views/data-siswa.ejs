@@ -1,0 +1,99 @@
+
+<link rel="icon" href="<%= rpl %>" type="img/x-icon">
+<div id="layoutSidenav_content">
+  <main>
+    <div class="container mx-auto px-6 py-8">
+      <!-- Header Section -->
+      <h5 class="text-2xl font-bold text-gray-800 mb-6">
+        <div class="shadow-lg p-6 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg">
+          Data Siswa
+        </div>
+      </h5>
+
+      <!-- Success Message -->
+      <% if (msg.length !==0) { %>
+        <div id="myAlert"
+          class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg shadow-md mb-6" role="alert">
+          <%= msg %>
+        </div>
+        <% } %>
+
+         
+
+          <!-- Data Table Section -->
+          <div class="bg-white shadow-xl rounded-lg overflow-hidden">
+            <div class="p-4 border-b border-gray-200 bg-gray-100">
+              <h6 class="font-semibold text-gray-700 flex items-center">
+                <i class="fas fa-table mr-2"></i> Tabel Data Siswa
+              </h6>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="table-auto w-full text-sm text-left text-gray-600">
+                <thead class="bg-gray-800 text-gray-200 uppercase font-semibold">
+                  <tr>
+                    <th class="px-6 py-4">No</th>
+                    <th class="px-6 py-4">Nama</th>
+                    <th class="px-6 py-4">NISN</th>
+                    <th class="px-6 py-4">NIK</th>
+                    <th class="px-6 py-4">No.KK</th>
+                    <th class="px-6 py-4 text-center">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody class="bg-gray-50">
+                  <% if (Dsiswa.length===0) { %>
+                    <tr>
+                      <td colspan="6" class="px-6 py-6 text-center">
+                        <div class="bg-red-100 text-red-700 p-4 rounded-lg font-semibold shadow-md" role="alert">
+                          Data Siswa/Siswi Masih Kosong
+                        </div>
+                      </td>
+                    </tr>
+                    <% } %>
+                      <% Dsiswa.forEach((siswa, i)=> { %>
+                        <tr class="border-b hover:bg-gray-100">
+                          <td class="px-6 py-4 text-center font-medium text-gray-800">
+                            <%= i + 1 %>
+                          </td>
+                          <td class="px-6 py-4 text-gray-700">
+                            <%= siswa.nama %>
+                          </td>
+                          <td class="px-6 py-4 text-gray-700">
+                            <%= siswa.nisn %>
+                          </td>
+                          <td class="px-6 py-4 text-gray-700">
+                            <%= siswa.nik %>
+                          </td>
+                          <td class="px-6 py-4 text-gray-700">
+                            <%= siswa.nokk %>
+                          </td>
+                          <td class="px-6 py-4 text-center space-x-2">
+                            <!-- Detail Button -->
+                            <a href="/data-siswa/detail/<%= siswa.nisn %>"
+                              class="bg-blue-500 hover:bg-blue-600 text-white text-xs py-2 px-3 rounded-lg shadow-md transform hover:scale-105 transition-transform">
+                              <i class="bi bi-eye"></i>
+                            </a>
+                            <!-- Delete Button -->
+                            <a href="/data-siswa/<%= siswa.nisn %>"
+                              class="bg-red-500 hover:bg-red-600 text-white text-xs py-2 px-3 rounded-lg shadow-md transform hover:scale-105 transition-transform"
+                              onclick="deleteSiswa('<%= siswa.nisn %>', '<%= siswa.nama %>'); return false;">
+                              <i class="bi bi-trash3-fill"></i>
+                            </a>
+                          </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+    </div>
+
+     <!-- Add Data Button -->
+     <div class="flex  ">
+      <a href="/data-siswa/add"
+        class="inline-block bg-transparent  text-slate-900 font-medium py-2 px-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform ">
+        <i class="bi bi-plus"></i> Tambah Data
+      </a>
+
+    </div>
+  </main>
+</div>

@@ -1,0 +1,112 @@
+
+<link rel="icon" href="<%= rpl %>" type="img/x-icon">
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h5 class="text-2xl font-bold text-gray-800 mb-6">
+                <div class="shadow-lg p-4 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg">
+                    Detail Data Siswa
+                </div>
+              </h5>
+            <div class="card shadow bg-gray-400 rounded mt-4">
+                <div class="card-header bg-gray-800 text-gray-200">
+                    <strong>Data Siswa</strong>
+                </div>
+                <div class="card-body">
+
+                    <% if (!siswa) { %>
+                        <div class="alert alert-danger fw-bold" role="alert">
+                            Data Siswa/Siswi tidak dapat ditemukan
+                            <br><a href="/data-siswa" class="alert-link fw-normal">&laquo; Kembali ke daftar
+                                contact</a>.
+                        </div>
+                        <% } else { %>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">Nama :</label>
+                                <div class="col-sm-9">
+                                    <input type="text" disabled class="form-control" value="<%- siswa.nama %>">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">Jenis Kelamin :</label>
+                                <div class="col-sm-9">
+                                    <input type="text" disabled class="form-control" value="<%- siswa.jk %>">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">NISN :</label>
+                                <div class="col-sm-9">
+                                    <input type="text" disabled class="form-control" value="<%- siswa.nisn %>">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">NIK :</label>
+                                <div class="col-sm-9">
+                                    <input type="text" disabled class="form-control" value="<%- siswa.nik %>">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">No.KK :</label>
+                                <div class="col-sm-9">
+                                    <input type="text" disabled class="form-control" value="<%- siswa.nokk %>">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">Tingkat Kelas Saat Ini :</label>
+                                <div class="col-sm-9">
+                                    <input type="text" disabled class="form-control" value="<%- siswa.tingkat %>">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">Rombel :</label>
+                                <div class="col-sm-9">
+                                    <input type="text" disabled class="form-control" value="<%- siswa.rombel %>">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">Tanggal Masuk :</label>
+                                <div class="col-sm-9">
+                                    <input type="text" disabled class="form-control" value="<%- siswa.tgl_masuk %>">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">Terdaftar Sebagai :</label>
+                                <div class="col-sm-9">
+                                    <input type="text" disabled class="form-control" value="<%- siswa.terdaftar %>">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label">Tempat Tanggal Lahir :</label>
+                                <div class="col-sm-9">
+                                    <input type="text" disabled class="form-control" value="<%- siswa.ttl %>">
+                                </div>
+                            </div>
+                            <% } %>
+                </div>
+                <% if (siswa) { %>
+                    <div class="card-footer bg-gray-800">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="/data-siswa/detail/edit/<%= siswa.nisn %>" class="btn btn-sm btn-warning hover:shadow-yellow-400"><i
+                                        class="bi bi-pencil-square"></i> Edit</a>
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <a href="/data-siswa" class="btn btn-sm btn-success">&laquo; Kembali</a>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+            </div>
+        </div>
+    </main>
+</div>
